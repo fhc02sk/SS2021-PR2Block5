@@ -11,9 +11,11 @@ public class Counter implements Runnable {
         }
     }
 
-    private Object LockObject = new Object();
+    private static Object LockObject = new Object();
     private void increase() {
 
+        //... warten
+        // max 1 Sekunden
         synchronized (LockObject)
         { // Kritischer Bereich
             Counter++;
