@@ -1,6 +1,6 @@
 package threading01;
 
-public class ConsolePrinter {
+public class ConsolePrinter extends Thread {
 
     private String identifier;
 
@@ -10,7 +10,18 @@ public class ConsolePrinter {
 
     public void logic() {
         for (int i = 0; i < 100; i++) {
-            System.out.println(i + "[identifier: " + identifier + ']');
+            System.out.println(i + ": [identifier: " + identifier + ']');
+
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    @Override
+    public void run() {
+        logic();
     }
 }
