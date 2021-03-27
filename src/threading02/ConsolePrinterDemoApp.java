@@ -1,14 +1,13 @@
-package threading01;
+package threading02;
 
 public class ConsolePrinterDemoApp {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ConsolePrinter cpA = new ConsolePrinter("printer A");
-        ConsolePrinter cpB = new ConsolePrinter("printer B");
-
-//        cpA.logic();
-//        cpB.logic();
+        Thread cpA =
+                new Thread(new ConsolePrinter("printer A"));
+        Thread cpB =
+                new Thread(new ConsolePrinter("printer B"));
 
         cpA.start(); // Erstellt den Thread, startet (irgendwann) die run-Methode
         cpB.start();
