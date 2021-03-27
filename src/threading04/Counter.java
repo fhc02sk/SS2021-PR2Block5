@@ -11,7 +11,12 @@ public class Counter implements Runnable {
         }
     }
 
+    private static String LockObject = "";
     private void increase() {
-        Counter++;
+
+        synchronized (LockObject)
+        { // Kritischer Bereich
+            Counter++;
+        }
     }
 }
