@@ -7,18 +7,20 @@ public class ConsolePrinterDemoApp {
         ConsolePrinter cpA = new ConsolePrinter("printer A");
         ConsolePrinter cpB = new ConsolePrinter("printer B");
 
-//        cpA.logic();
-//        cpB.logic();
-
         cpA.start(); // Erstellt den Thread, startet (irgendwann) die run-Methode
         cpB.start();
         System.out.println("Beide Threads erstellt!");
 
-        /* 10 Sekunden Zeit */
-        /*for (int i = 0; i < 80; i++){
-            System.out.println("Hauptthread: " + i);
-            Thread.sleep(100);
-        }*/
+        /* 100 ... Sekunden Zeit */
+
+        Thread.sleep(12_000);
+        System.out.println("12 Sekunden sind vergangen");
+        // Benutzer "Abbrechen"
+        cpA.shouldStop();
+        Thread.sleep(1_000);
+        cpB.shouldStop();
+
+        // interrupt()
 
         cpB.join();
         System.out.println("Thread B ist beendet");

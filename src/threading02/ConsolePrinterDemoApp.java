@@ -19,6 +19,13 @@ public class ConsolePrinterDemoApp {
             Thread.sleep(100);
         }*/
 
+        Thread.sleep(10_000);
+        // Hier entscheidet, dass die Berechnung beendet wird
+
+        cpA.interrupt();
+        cpB.interrupt();
+
+
         cpB.join();
         System.out.println("Thread B ist beendet");
         cpA.join(); // Wartet bis die Arbeit vom Thread (ConsolePrinter) abgeschlossen
