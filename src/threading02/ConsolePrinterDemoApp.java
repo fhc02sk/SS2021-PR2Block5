@@ -25,6 +25,9 @@ public class ConsolePrinterDemoApp {
         cpA.interrupt();
         cpB.interrupt();
 
+        //cpA.stop();
+        //cpB.stop();
+
 
         cpB.join();
         System.out.println("Thread B ist beendet");
